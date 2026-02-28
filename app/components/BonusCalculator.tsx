@@ -107,7 +107,7 @@ export default function BonusCalculator() {
             placeholder="Enter GP (e.g. 875000)"
             value={gp}
             onChange={(e) => setGp(e.target.value)}
-            className="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full text-center focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full text-center text-black placeholder:text-black focus:outline-none focus:ring-2 focus:ring-green-400"
           />
           {activeTier && bonus !== null && (
             <div className="text-base font-bold text-center" style={{ color: bonus === 0 ? "#dc2626" : "#15803d" }}>
