@@ -87,7 +87,7 @@ export default function BonusCalculator() {
               const b = calcBonus(e);
               return (
                 <tr key={i} className={i % 2 === 0 ? "bg-slate-50" : "bg-white"}>
-                  <td className="px-4 py-3 text-center">{fmt(e)}</td>
+                  <td className="px-4 py-3 text-center text-black">{fmt(e)}</td>
                   <td className="px-4 py-3 text-center font-bold" style={{ color: b === 0 ? "#dc2626" : "#15803d" }}>
                     {b === 0 ? "—" : fmt(b)}
                   </td>
