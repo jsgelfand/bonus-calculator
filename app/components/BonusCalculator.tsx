@@ -75,12 +75,14 @@ export default function BonusCalculator() {
             {tiers.map((t, i) => {
               const isElite = t.max === Infinity;
               const ceilBonus  = t.rate > 0 ? fmt(Math.min(t.rate * (isElite ? 1500000 : t.max), 35000)) : "—";
+              const greenIntensity = i / (tiers.length - 1);
+              const bgColor = `rgba(34, 197, 94, ${greenIntensity * 0.35})`;
               return (
-                <tr key={i} style={{ background: t.color, color: t.textColor }} className={i === 0 ? "italic" : ""}>
-                  <td className="px-4 py-3 text-center">
+                <tr key={i} style={{ background: bgColor }} className={i === 0 ? "italic" : ""}>
+                  <td className="px-4 py-3 text-center text-black">
                     {i === 0 ? "Below $500,000" : isElite ? "$1,500,000+" : `${fmt(t.min)} – ${fmt(t.max)}`}
                   </td>
-                  <td className="px-4 py-3 text-center font-bold">{ceilBonus}</td>
+                  <td className="px-4 py-3 text-center font-bold text-black">{ceilBonus}</td>
                 </tr>
               );
             })}
@@ -102,8 +104,10 @@ export default function BonusCalculator() {
           <tbody>
             {examples.map((e, i) => {
               const b = calcBonus(e);
+              const greenIntensity = i / (examples.length - 1);
+              const bgColor = `rgba(34, 197, 94, ${greenIntensity * 0.35})`;
               return (
-                <tr key={i} className={i % 2 === 0 ? "bg-slate-50" : "bg-white"}>
+                <tr key={i} style={{ background: bgColor }}>
                   <td className="px-4 py-3 text-center text-black">{fmt(e)}</td>
                   <td className="px-4 py-3 text-center font-bold" style={{ color: b === 0 ? "#dc2626" : "#15803d" }}>
                     {b === 0 ? "—" : fmt(b)}
