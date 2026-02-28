@@ -44,7 +44,7 @@ export default function BonusCalculator() {
       </p>
 
       {/* Tier Table */}
-      <h3 className="text-base font-semibold mb-3 text-center">Bonus Tiers</h3>
+      <h3 className="text-base font-semibold mb-3 text-center text-black">Bonus Tiers</h3>
       <div className="overflow-x-auto mb-10 rounded-lg shadow w-full max-w-md">
         <table className="w-full border-collapse text-sm">
           <thead>
@@ -72,7 +72,7 @@ export default function BonusCalculator() {
       </div>
 
       {/* Milestone Payouts */}
-      <h3 className="text-base font-semibold mb-3 text-center">Milestone Payouts</h3>
+      <h3 className="text-base font-semibold mb-3 text-center text-black">Milestone Payouts</h3>
       <div className="overflow-x-auto mb-10 rounded-lg shadow w-full max-w-md">
         <table className="w-full border-collapse text-sm">
           <thead>
