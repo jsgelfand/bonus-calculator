@@ -36,16 +36,16 @@ export default function BonusCalculator() {
   const bonus = gp ? calcBonus(gpNum) : null;
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 font-sans">
-      <h2 className="text-2xl font-bold mb-1 text-black">Annual Bonus Program</h2>
+    <div className="max-w-4xl mx-auto px-4 py-8 font-sans flex flex-col items-center">
+      <h2 className="text-2xl font-bold mb-1 text-black text-center">Annual Bonus Program</h2>
 
-      <p className="text-slate-400 text-xs italic mb-8">
+      <p className="text-slate-400 text-xs italic mb-8 text-center">
         Bonus rate is applied to total GP based on tier achieved.
       </p>
 
       {/* Tier Table */}
-      <h3 className="text-base font-semibold mb-3">Bonus Tiers</h3>
-      <div className="overflow-x-auto mb-10 rounded-lg shadow max-w-md">
+      <h3 className="text-base font-semibold mb-3 text-center">Bonus Tiers</h3>
+      <div className="overflow-x-auto mb-10 rounded-lg shadow w-full max-w-md">
         <table className="w-full border-collapse text-sm">
           <thead>
             <tr className="bg-slate-800 text-white">
@@ -72,8 +72,8 @@ export default function BonusCalculator() {
       </div>
 
       {/* Milestone Payouts */}
-      <h3 className="text-base font-semibold mb-3">Milestone Payouts</h3>
-      <div className="overflow-x-auto mb-10 rounded-lg shadow">
+      <h3 className="text-base font-semibold mb-3 text-center">Milestone Payouts</h3>
+      <div className="overflow-x-auto mb-10 rounded-lg shadow w-full max-w-md">
         <table className="w-full border-collapse text-sm">
           <thead>
             <tr className="bg-slate-700 text-white">
@@ -99,18 +99,18 @@ export default function BonusCalculator() {
       </div>
 
       {/* Calculator */}
-      <div className="bg-green-50 border border-green-300 rounded-xl p-6">
-        <h3 className="text-base font-semibold mb-4">💰 Bonus Calculator</h3>
-        <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+      <div className="bg-green-50 border border-green-300 rounded-xl p-6 w-full max-w-md">
+        <h3 className="text-base font-semibold mb-4 text-center">Bonus Calculator</h3>
+        <div className="flex flex-col gap-4 items-center">
           <input
             type="text"
             placeholder="Enter GP (e.g. 875000)"
             value={gp}
             onChange={(e) => setGp(e.target.value)}
-            className="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full text-center focus:outline-none focus:ring-2 focus:ring-green-400"
           />
           {activeTier && bonus !== null && (
-            <div className="text-base font-bold" style={{ color: bonus === 0 ? "#dc2626" : "#15803d" }}>
+            <div className="text-base font-bold text-center" style={{ color: bonus === 0 ? "#dc2626" : "#15803d" }}>
               {bonus === 0
                 ? "No bonus — below $500K threshold"
                 : `${activeTier.label} Tier (${pct(activeTier.rate)} × ${fmt(gpNum)}) → ${fmt(bonus)}`}
