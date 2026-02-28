@@ -28,8 +28,6 @@ function calcBonus(gp: number) {
   return Math.min(t.rate * gp, 35000);
 }
 
-const examples = [499999, 500000, 750000, 1000000, 1250000, 1500000];
-
 export default function BonusCalculator() {
   const [gp, setGp] = useState("");
   const [fireworkTrigger, setFireworkTrigger] = useState(false);
@@ -83,35 +81,6 @@ export default function BonusCalculator() {
                     {i === 0 ? "Below $500,000" : isElite ? "$1,500,000+" : `${fmt(t.min)} – ${fmt(t.max)}`}
                   </td>
                   <td className="w-1/2 px-3 py-2 text-center font-bold text-black">{ceilBonus}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-
-      {/* Milestone Payouts */}
-      <h3 className="text-sm font-semibold mb-2 text-center text-black">Milestone Payouts</h3>
-      <div className="overflow-x-auto mb-8 rounded-lg shadow w-full">
-        <table className="w-full border-collapse text-xs table-fixed">
-          <thead>
-            <tr className="bg-slate-700 text-white">
-              {["Gross Profit", "Bonus Earned"].map((h) => (
-                <th key={h} className="w-1/2 px-3 py-2 text-center font-semibold">{h}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {examples.map((e, i) => {
-              const b = calcBonus(e);
-              const greenIntensity = i / (examples.length - 1);
-              const bgColor = `rgba(34, 197, 94, ${greenIntensity * 0.35})`;
-              return (
-                <tr key={i} style={{ background: bgColor }}>
-                  <td className="w-1/2 px-3 py-2 text-center text-black">{fmt(e)}</td>
-                  <td className="w-1/2 px-3 py-2 text-center font-bold text-black">
-                    {b === 0 ? "—" : fmt(b)}
-                  </td>
                 </tr>
               );
             })}
