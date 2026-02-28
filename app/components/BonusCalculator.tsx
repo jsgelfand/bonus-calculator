@@ -38,9 +38,7 @@ export default function BonusCalculator() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 font-sans">
       <h2 className="text-2xl font-bold mb-1 text-black">Annual Bonus Program</h2>
-      <p className="text-slate-500 text-sm mb-1">
-        Individual Salesperson · Gross Profit Glide Path · Max Bonus <strong>$35,000</strong>
-      </p>
+
       <p className="text-slate-400 text-xs italic mb-8">
         Bonus rate is applied to total GP based on tier achieved. Rate accelerates with each tier. Maximum $35,000 requires $1,500,000 GP.
       </p>
