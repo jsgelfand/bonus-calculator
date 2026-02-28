@@ -32,20 +32,20 @@ export default function GoldFireworks({ trigger }: { trigger: boolean }) {
   const prevTriggerRef = useRef(false);
 
   const createBurst = useCallback((cx: number, cy: number) => {
-    const count = 60;
+    const count = 90;
     for (let i = 0; i < count; i++) {
       const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.3;
-      const speed = 2 + Math.random() * 4;
+      const speed = 1.5 + Math.random() * 3;
       particlesRef.current.push({
         x: cx,
         y: cy,
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed,
         alpha: 1,
-        decay: 0.012 + Math.random() * 0.01,
-        size: 2 + Math.random() * 3,
+        decay: 0.004 + Math.random() * 0.004,
+        size: 3 + Math.random() * 4,
         color: GOLD_COLORS[Math.floor(Math.random() * GOLD_COLORS.length)],
-        gravity: 0.04 + Math.random() * 0.02,
+        gravity: 0.02 + Math.random() * 0.015,
       });
     }
   }, []);
