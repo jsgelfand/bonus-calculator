@@ -52,7 +52,7 @@ export default function BonusCalculator() {
       <img
         src="/images/logo.png"
         alt="Mission logo"
-        className="h-10 w-auto mb-3"
+        className="h-[50px] w-auto mb-3"
       />
       <h2 className="text-xl font-bold mb-1 text-black text-center">Annual Bonus Program</h2>
 
@@ -109,7 +109,7 @@ export default function BonusCalculator() {
               return (
                 <tr key={i} style={{ background: bgColor }}>
                   <td className="px-3 py-2 text-center text-black">{fmt(e)}</td>
-                  <td className="px-3 py-2 text-center font-bold" style={{ color: b === 0 ? "#dc2626" : "#15803d" }}>
+                  <td className="px-3 py-2 text-center font-bold text-black">
                     {b === 0 ? "—" : fmt(b)}
                   </td>
                 </tr>
