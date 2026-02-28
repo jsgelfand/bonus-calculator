@@ -78,7 +78,7 @@ export default function BonusCalculator() {
           <thead>
             <tr className="bg-slate-700 text-white">
               {["Gross Profit", "Bonus Earned"].map((h) => (
-                <th key={h} className="px-4 py-3 text-right font-semibold">{h}</th>
+                <th key={h} className="px-4 py-3 text-center font-semibold">{h}</th>
               ))}
             </tr>
           </thead>
@@ -87,8 +87,8 @@ export default function BonusCalculator() {
               const b = calcBonus(e);
               return (
                 <tr key={i} className={i % 2 === 0 ? "bg-slate-50" : "bg-white"}>
-                  <td className="px-4 py-3 text-right">{fmt(e)}</td>
-                  <td className="px-4 py-3 text-right font-bold" style={{ color: b === 0 ? "#dc2626" : "#15803d" }}>
+                  <td className="px-4 py-3 text-center">{fmt(e)}</td>
+                  <td className="px-4 py-3 text-center font-bold" style={{ color: b === 0 ? "#dc2626" : "#15803d" }}>
                     {b === 0 ? "—" : fmt(b)}
                   </td>
                 </tr>
