@@ -36,7 +36,12 @@ export default function BonusCalculator() {
   const bonus = gp ? calcBonus(gpNum) : null;
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 font-sans flex flex-col items-center">
+    <div className="max-w-4xl mx-auto px-4 py-8 font-sans flex flex-col items-center relative">
+      <img
+        src="/images/logo.png"
+        alt="Mission logo"
+        className="absolute top-6 right-4 h-12 w-auto"
+      />
       <h2 className="text-2xl font-bold mb-1 text-black text-center">Annual Bonus Program</h2>
 
       <p className="text-slate-400 text-xs italic mb-8 text-center">
