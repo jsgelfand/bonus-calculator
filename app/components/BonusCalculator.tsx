@@ -100,7 +100,7 @@ export default function BonusCalculator() {
 
       {/* Calculator */}
       <div className="bg-green-50 border border-green-300 rounded-xl p-6 w-full max-w-md">
-        <h3 className="text-base font-semibold mb-4 text-center">Bonus Calculator</h3>
+        <h3 className="text-base font-semibold mb-4 text-center text-black">Bonus Calculator</h3>
         <div className="flex flex-col gap-4 items-center">
           <input
             type="text"
