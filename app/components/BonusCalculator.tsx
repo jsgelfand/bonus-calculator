@@ -63,11 +63,11 @@ export default function BonusCalculator() {
       {/* Tier Table */}
       <h3 className="text-sm font-semibold mb-2 text-center text-black">Bonus Tiers</h3>
       <div className="overflow-x-auto mb-8 rounded-lg shadow w-full">
-        <table className="w-full border-collapse text-xs">
+        <table className="w-full border-collapse text-xs table-fixed">
           <thead>
             <tr className="bg-slate-800 text-white">
               {["GP Range", "Bonus at Ceiling"].map((h) => (
-                <th key={h} className="px-3 py-2 text-center font-semibold">{h}</th>
+                <th key={h} className="w-1/2 px-3 py-2 text-center font-semibold">{h}</th>
               ))}
             </tr>
           </thead>
@@ -79,10 +79,10 @@ export default function BonusCalculator() {
               const bgColor = `rgba(34, 197, 94, ${greenIntensity * 0.35})`;
               return (
                 <tr key={i} style={{ background: bgColor }} className={i === 0 ? "italic" : ""}>
-                  <td className="px-3 py-2 text-center text-black">
+                  <td className="w-1/2 px-3 py-2 text-center text-black">
                     {i === 0 ? "Below $500,000" : isElite ? "$1,500,000+" : `${fmt(t.min)} – ${fmt(t.max)}`}
                   </td>
-                  <td className="px-3 py-2 text-center font-bold text-black">{ceilBonus}</td>
+                  <td className="w-1/2 px-3 py-2 text-center font-bold text-black">{ceilBonus}</td>
                 </tr>
               );
             })}
@@ -93,11 +93,11 @@ export default function BonusCalculator() {
       {/* Milestone Payouts */}
       <h3 className="text-sm font-semibold mb-2 text-center text-black">Milestone Payouts</h3>
       <div className="overflow-x-auto mb-8 rounded-lg shadow w-full">
-        <table className="w-full border-collapse text-xs">
+        <table className="w-full border-collapse text-xs table-fixed">
           <thead>
             <tr className="bg-slate-700 text-white">
               {["Gross Profit", "Bonus Earned"].map((h) => (
-                <th key={h} className="px-3 py-2 text-center font-semibold">{h}</th>
+                <th key={h} className="w-1/2 px-3 py-2 text-center font-semibold">{h}</th>
               ))}
             </tr>
           </thead>
@@ -108,8 +108,8 @@ export default function BonusCalculator() {
               const bgColor = `rgba(34, 197, 94, ${greenIntensity * 0.35})`;
               return (
                 <tr key={i} style={{ background: bgColor }}>
-                  <td className="px-3 py-2 text-center text-black">{fmt(e)}</td>
-                  <td className="px-3 py-2 text-center font-bold text-black">
+                  <td className="w-1/2 px-3 py-2 text-center text-black">{fmt(e)}</td>
+                  <td className="w-1/2 px-3 py-2 text-center font-bold text-black">
                     {b === 0 ? "—" : fmt(b)}
                   </td>
                 </tr>
