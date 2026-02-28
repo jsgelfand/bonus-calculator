@@ -50,7 +50,7 @@ export default function BonusCalculator() {
           <thead>
             <tr className="bg-slate-800 text-white">
               {["GP Range", "Bonus at Ceiling"].map((h) => (
-                <th key={h} className="px-4 py-3 text-right font-semibold">{h}</th>
+                <th key={h} className="px-4 py-3 text-center font-semibold">{h}</th>
               ))}
             </tr>
           </thead>
@@ -60,10 +60,10 @@ export default function BonusCalculator() {
               const ceilBonus  = t.rate > 0 ? fmt(Math.min(t.rate * (isElite ? 1500000 : t.max), 35000)) : "—";
               return (
                 <tr key={i} style={{ background: t.color, color: t.textColor }} className={i === 0 ? "italic" : ""}>
-                  <td className="px-4 py-3 text-right">
+                  <td className="px-4 py-3 text-center">
                     {i === 0 ? "Below $500,000" : isElite ? "$1,500,000+" : `${fmt(t.min)} – ${fmt(t.max)}`}
                   </td>
-                  <td className="px-4 py-3 text-right font-bold">{ceilBonus}</td>
+                  <td className="px-4 py-3 text-center font-bold">{ceilBonus}</td>
                 </tr>
               );
             })}
