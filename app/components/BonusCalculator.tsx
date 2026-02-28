@@ -87,7 +87,7 @@ export default function BonusCalculator() {
               const b = calcBonus(e);
               return (
                 <tr key={i} className={i % 2 === 0 ? "bg-slate-50" : "bg-white"}>
-                  <td className="px-4 py-3 text-center">{fmt(e)}</td>
+                  <td className="px-4 py-3 text-center text-black">{fmt(e)}</td>
                   <td className="px-4 py-3 text-center font-bold" style={{ color: b === 0 ? "#dc2626" : "#15803d" }}>
                     {b === 0 ? "—" : fmt(b)}
                   </td>
@@ -100,14 +100,14 @@ export default function BonusCalculator() {
 
       {/* Calculator */}
       <div className="bg-green-50 border border-green-300 rounded-xl p-6 w-full max-w-md">
-        <h3 className="text-base font-semibold mb-4 text-center">Bonus Calculator</h3>
+        <h3 className="text-base font-semibold mb-4 text-center text-black">Bonus Calculator</h3>
         <div className="flex flex-col gap-4 items-center">
           <input
             type="text"
             placeholder="Enter GP (e.g. 875000)"
             value={gp}
             onChange={(e) => setGp(e.target.value)}
-            className="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full text-center focus:outline-none focus:ring-2 focus:ring-green-400"
+            className="border border-gray-300 rounded-lg px-4 py-2 text-sm w-full text-center text-black placeholder:text-black focus:outline-none focus:ring-2 focus:ring-green-400"
           />
           {activeTier && bonus !== null && (
             <div className="text-base font-bold text-center" style={{ color: bonus === 0 ? "#dc2626" : "#15803d" }}>
