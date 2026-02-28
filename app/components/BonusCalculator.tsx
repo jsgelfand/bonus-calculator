@@ -49,26 +49,20 @@ export default function BonusCalculator() {
         <table className="w-full border-collapse text-sm">
           <thead>
             <tr className="bg-slate-800 text-white">
-              {["Tier", "GP Range", "Rate on Total GP", "Bonus at Floor", "Bonus at Ceiling"].map((h) => (
-                <th key={h} className="px-4 py-3 text-right first:text-left font-semibold">{h}</th>
+              {["GP Range", "Bonus at Ceiling"].map((h) => (
+                <th key={h} className="px-4 py-3 text-right font-semibold">{h}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {tiers.map((t, i) => {
               const isElite = t.max === Infinity;
-              const floorBonus = t.rate > 0 ? fmt(Math.min(t.rate * t.min, 35000)) : "—";
               const ceilBonus  = t.rate > 0 ? fmt(Math.min(t.rate * (isElite ? 1500000 : t.max), 35000)) : "—";
               return (
                 <tr key={i} style={{ background: t.color, color: t.textColor }} className={i === 0 ? "italic" : ""}>
-                  <td className="px-4 py-3 font-bold">{t.label}</td>
                   <td className="px-4 py-3 text-right">
                     {i === 0 ? "Below $500,000" : isElite ? "$1,500,000+" : `${fmt(t.min)} – ${fmt(t.max)}`}
                   </td>
-                  <td className="px-4 py-3 text-right font-semibold" style={{ color: t.rate === 0 ? "#94a3b8" : "#1e40af" }}>
-                    {pct(t.rate)}
-                  </td>
-                  <td className="px-4 py-3 text-right">{floorBonus}</td>
                   <td className="px-4 py-3 text-right font-bold">{ceilBonus}</td>
                 </tr>
               );
@@ -83,20 +77,17 @@ export default function BonusCalculator() {
         <table className="w-full border-collapse text-sm">
           <thead>
             <tr className="bg-slate-700 text-white">
-              {["Gross Profit", "Tier Achieved", "Rate Applied", "Bonus Earned"].map((h) => (
+              {["Gross Profit", "Bonus Earned"].map((h) => (
                 <th key={h} className="px-4 py-3 text-right font-semibold">{h}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {examples.map((e, i) => {
-              const t = getTier(e);
               const b = calcBonus(e);
               return (
                 <tr key={i} className={i % 2 === 0 ? "bg-slate-50" : "bg-white"}>
                   <td className="px-4 py-3 text-right">{fmt(e)}</td>
-                  <td className="px-4 py-3 text-right font-semibold">{t.label}</td>
-                  <td className="px-4 py-3 text-right text-blue-700">{pct(t.rate)}</td>
                   <td className="px-4 py-3 text-right font-bold" style={{ color: b === 0 ? "#dc2626" : "#15803d" }}>
                     {b === 0 ? "—" : fmt(b)}
                   </td>
