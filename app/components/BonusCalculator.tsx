@@ -37,7 +37,7 @@ export default function BonusCalculator() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 font-sans">
-      <h2 className="text-2xl font-bold mb-1">Annual Bonus Program</h2>
+      <h2 className="text-2xl font-bold mb-1 text-black">Annual Bonus Program</h2>
       <p className="text-slate-500 text-sm mb-1">
         Individual Salesperson · Gross Profit Glide Path · Max Bonus <strong>$35,000</strong>
       </p>
