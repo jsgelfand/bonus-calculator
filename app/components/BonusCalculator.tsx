@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import GoldFireworks from "./GoldFireworks";
 
 const tiers = [
   { label: "Below Threshold", min: 0,        max: 499999,   rate: 0,        color: "#f8fafc", textColor: "#94a3b8" },
@@ -31,9 +32,20 @@ const examples = [499999, 500000, 750000, 1000000, 1250000, 1500000];
 
 export default function BonusCalculator() {
   const [gp, setGp] = useState("");
+  const [fireworkTrigger, setFireworkTrigger] = useState(false);
+  const prevBonusRef = useRef<number | null>(null);
   const gpNum = Number(gp.replace(/,/g, ""));
   const activeTier = gp ? getTier(gpNum) : null;
   const bonus = gp ? calcBonus(gpNum) : null;
+
+  useEffect(() => {
+    if (bonus !== null && bonus > 0 && prevBonusRef.current !== bonus) {
+      setFireworkTrigger(true);
+      const timeout = setTimeout(() => setFireworkTrigger(false), 100);
+      return () => clearTimeout(timeout);
+    }
+    prevBonusRef.current = bonus;
+  }, [bonus]);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 font-sans flex flex-col items-center">
@@ -104,7 +116,8 @@ export default function BonusCalculator() {
       </div>
 
       {/* Calculator */}
-      <div className="bg-green-50 border border-green-300 rounded-xl p-6 w-full max-w-md">
+      <div className="bg-green-50 border border-green-300 rounded-xl p-6 w-full max-w-md relative overflow-hidden">
+        <GoldFireworks trigger={fireworkTrigger} />
         <h3 className="text-base font-semibold mb-4 text-center text-black">Bonus Calculator</h3>
         <div className="flex flex-col gap-4 items-center">
           <input
