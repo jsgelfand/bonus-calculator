@@ -45,7 +45,7 @@ export default function BonusCalculator() {
 
       {/* Tier Table */}
       <h3 className="text-base font-semibold mb-3">Bonus Tiers</h3>
-      <div className="overflow-x-auto mb-10 rounded-lg shadow">
+      <div className="overflow-x-auto mb-10 rounded-lg shadow max-w-md">
         <table className="w-full border-collapse text-sm">
           <thead>
             <tr className="bg-slate-800 text-white">
