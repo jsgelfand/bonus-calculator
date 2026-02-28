@@ -40,7 +40,7 @@ export default function BonusCalculator() {
       <h2 className="text-2xl font-bold mb-1 text-black">Annual Bonus Program</h2>
 
       <p className="text-slate-400 text-xs italic mb-8">
-        Bonus rate is applied to total GP based on tier achieved. Rate accelerates with each tier. Maximum $35,000 requires $1,500,000 GP.
+        Bonus rate is applied to total GP based on tier achieved.
       </p>
 
       {/* Tier Table */}
