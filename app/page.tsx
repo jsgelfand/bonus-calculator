@@ -7,23 +7,3 @@ export default function Home() {
     </main>
   );
 }
-```
-
-Then press **Command + S** to save.
-
----
-
-**STEP 4: Redeploy**
-
-Go back to your terminal and type these one at a time:
-```
-git add .
-```
-```
-git commit -m "fix page.tsx"
-```
-```
-git push origin main
-```
-```
-vercel --prod
