@@ -87,11 +87,11 @@ export default function BonusCalculator() {
               const greenIntensity = isZeroTier ? 0 : i / (tiers.length - 1);
               const bgColor = isZeroTier ? "#f1f5f9" : `rgba(34, 197, 94, ${greenIntensity * 0.35})`;
               return (
-                <tr key={i} style={{ background: bgColor }} className={isZeroTier ? "italic text-slate-500" : ""}>
-                  <td className="w-1/2 px-3 py-2 text-center">
+                <tr key={i} style={{ background: bgColor }}>
+                  <td className="w-1/2 px-3 py-2 text-center text-black">
                     {isTop ? `${fmt(t.min)}+` : `${fmt(t.min)} – ${fmt(t.max)}`}
                   </td>
-                  <td className="w-1/2 px-3 py-2 text-center font-bold">{fmt(t.bonusAtCeiling)}</td>
+                  <td className="w-1/2 px-3 py-2 text-center font-bold text-black">{fmt(t.bonusAtCeiling)}</td>
                 </tr>
               );
             })}
