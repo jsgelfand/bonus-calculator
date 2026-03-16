@@ -4,11 +4,11 @@ import { useState, useRef, useEffect } from "react";
 import GoldFireworks from "./GoldFireworks";
 
 const tiers = [
-  { label: "Below Threshold", min: 0,        max: 124999.99,  bonusAtCeiling: 0 },
-  { label: "Tier 1",          min: 125000,   max: 187499.99,  bonusAtCeiling: 1312.50 },
-  { label: "Tier 2",          min: 187500,   max: 249999.99,  bonusAtCeiling: 2917.50 },
-  { label: "Tier 3",          min: 250000,   max: 312499.99,  bonusAtCeiling: 5468.75 },
-  { label: "Tier 4",          min: 312500,   max: 374999.99,  bonusAtCeiling: 7875.00 },
+  { label: "Below Threshold", min: 0,        max: 124499,  bonusAtCeiling: 0 },
+  { label: "Tier 1",          min: 124500,   max: 187499,  bonusAtCeiling: 1312.50 },
+  { label: "Tier 2",          min: 187500,   max: 249999,  bonusAtCeiling: 2917.50 },
+  { label: "Tier 3",          min: 250000,   max: 312499,  bonusAtCeiling: 5468.75 },
+  { label: "Tier 4",          min: 312500,   max: 374999,  bonusAtCeiling: 7875.00 },
   { label: "Tier 5",          min: 375000,   max: Infinity,   bonusAtCeiling: 8748.75 },
 ];
 
