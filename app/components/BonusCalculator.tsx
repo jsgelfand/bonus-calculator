@@ -81,16 +81,17 @@ export default function BonusCalculator() {
             </tr>
           </thead>
           <tbody>
-            {tiers.filter(t => t.bonusAtCeiling > 0).map((t, i, arr) => {
+            {tiers.map((t, i) => {
               const isTop = t.max === Infinity;
-              const greenIntensity = (i + 1) / arr.length;
-              const bgColor = `rgba(34, 197, 94, ${greenIntensity * 0.35})`;
+              const isZeroTier = t.bonusAtCeiling === 0;
+              const greenIntensity = isZeroTier ? 0 : i / (tiers.length - 1);
+              const bgColor = isZeroTier ? "#f1f5f9" : `rgba(34, 197, 94, ${greenIntensity * 0.35})`;
               return (
-                <tr key={i} style={{ background: bgColor }}>
-                  <td className="w-1/2 px-3 py-2 text-center text-black">
+                <tr key={i} style={{ background: bgColor }} className={isZeroTier ? "italic text-slate-500" : ""}>
+                  <td className="w-1/2 px-3 py-2 text-center">
                     {isTop ? `${fmt(t.min)}+` : `${fmt(t.min)} – ${fmt(t.max)}`}
                   </td>
-                  <td className="w-1/2 px-3 py-2 text-center font-bold text-black">{fmt(t.bonusAtCeiling)}</td>
+                  <td className="w-1/2 px-3 py-2 text-center font-bold">{fmt(t.bonusAtCeiling)}</td>
                 </tr>
               );
             })}
