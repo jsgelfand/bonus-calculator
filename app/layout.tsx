@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Annual Bonus Program",
+  title: "Quarterly Bonus Program",
   description: "Mission bonus calculator and tier information",
 };
 
