@@ -63,7 +63,7 @@ export default function BonusCalculator() {
         alt="Mission logo"
         className="h-[50px] w-auto mb-3"
       />
-      <h2 className="text-xl font-bold mb-1 text-black text-center">Annual Bonus Program</h2>
+      <h2 className="text-xl font-bold mb-1 text-black text-center">Quarterly Bonus Program</h2>
 
       <p className="text-slate-400 text-xs italic mb-6 text-center">
         Bonus rate is applied to total GP based on tier achieved.
