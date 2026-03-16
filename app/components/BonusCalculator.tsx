@@ -13,7 +13,7 @@ const tiers = [
 ];
 
 const fmt = (n: number) =>
-  n.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  n.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
 function getTier(gp: number) {
   for (let i = tiers.length - 1; i >= 0; i--) {
