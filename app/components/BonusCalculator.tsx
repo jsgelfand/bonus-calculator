@@ -28,20 +28,19 @@ function calcBonus(gp: number) {
   
   const tierIndex = tiers.indexOf(tier);
   
-  // For Tier 1, start at $1 and interpolate to ceiling
-  if (tierIndex === 1) {
-    const tierRange = tier.max - tier.min;
-    const positionInTier = Math.min((gp - tier.min) / tierRange, 1);
-    // Start at $1, interpolate to $1,875
-    return 1 + (positionInTier * (tier.bonusAtCeiling - 1));
-  }
+  // Get the previous tier's ceiling bonus (or 0 for Tier 1)
+  const prevTierBonus = tierIndex > 0 ? tiers[tierIndex - 1].bonusAtCeiling : 0;
   
-  // For other tiers, interpolate between previous tier's ceiling bonus and current tier's ceiling bonus
+  // Minimum bonus at tier start is $1 more than previous tier's ceiling
+  const minBonusAtTierStart = prevTierBonus + 1;
+  
+  // Calculate position within the tier
   const tierRange = tier.max === Infinity ? 1 : tier.max - tier.min;
   const positionInTier = tier.max === Infinity ? 1 : Math.min((gp - tier.min) / tierRange, 1);
-  const prevTierBonus = tiers[tierIndex - 1].bonusAtCeiling;
-  const bonusRange = tier.bonusAtCeiling - prevTierBonus;
-  return prevTierBonus + (positionInTier * bonusRange);
+  
+  // Interpolate from minBonusAtTierStart to tier's ceiling bonus
+  const bonusRange = tier.bonusAtCeiling - minBonusAtTierStart;
+  return minBonusAtTierStart + (positionInTier * bonusRange);
 }
 
 export default function BonusCalculator() {
